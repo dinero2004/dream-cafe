@@ -446,7 +446,7 @@
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem(STORAGE_THEME, theme);
 
-    document.querySelectorAll(".theme-btn").forEach(function (btn) {
+    document.querySelectorAll("[data-set-theme]").forEach(function (btn) {
       var th = btn.getAttribute("data-set-theme");
       var active = th === theme;
       btn.classList.toggle("is-active", active);
