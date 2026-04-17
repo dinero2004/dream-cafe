@@ -44,9 +44,15 @@ English (`en`) and Bulgarian (`bg`). Copy lives in `script.js` (`STRINGS`); elem
 
 Theme (square color swatches + labels) and language live in a **Settings** dropdown in the header. The panel closes on outside click, **Escape**, or when opening the mobile navigation. Theme swatches use flat base colors (`#f4d0d0`, `#e0d4f0`, `#ffd9c9`) as quick previews.
 
-### Hero parallax (subtle)
+### Scroll parallax (hero + sections)
 
-When **`prefers-reduced-motion: reduce`** is off, `script.js` applies a **light scroll-linked parallax** on the hero only: the photo moves slightly slower than the page (`translate3d` + small `scale` so edges stay covered), and the headline block moves a bit in the opposite direction for depth. Values are **clamped** (about ±46px / ±20px) so motion stays calm. **`requestAnimationFrame`** + **passive** scroll listeners keep scrolling smooth. If the user enables “reduce motion” in the OS, transforms are cleared and `html.js-parallax` is not used.
+When **`prefers-reduced-motion: reduce`** is off, `script.js` runs a single **`requestAnimationFrame`** loop (with **passive** scroll/resize listeners):
+
+- **Hero:** photo uses `translate3d` + small `scale`; headline block moves slightly the other way. Clamped (about ±46px / ±20px).
+- **Content sections** (`.section--layer`): each block gets a **small `translateY`** (clamped ~±18px) based on how its vertical center relates to the viewport, so blocks **slide gently** over one another during scroll. This pairs with **CSS overlap**: negative `margin-top`, **rounded top corners**, **stacking `z-index`**, and a soft **upward shadow** so each section reads as a card sliding over the previous band.
+- **Locations** (`#locations`): **no transform** on the section (Leaflet maps break if an ancestor is transformed). Overlap styling still applies; only the parallax shift is skipped.
+
+If “reduce motion” is on, transforms are cleared and `html.js-parallax` is not used.
 
 ### Image usage (`assets/`)
 

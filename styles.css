@@ -445,15 +445,76 @@ a:hover {
 
 main {
   padding-top: var(--header-h);
+  position: relative;
+  z-index: 0;
 }
 
 .hero {
   position: relative;
+  z-index: 1;
   min-height: min(88vh, 900px);
   display: grid;
   place-items: center;
   overflow: hidden;
   isolation: isolate;
+}
+
+/* Overlapping “cards” between sections (parallax shift applied in script.js) */
+.section.section--layer {
+  position: relative;
+  padding: calc(var(--space-section) + 1.35rem) 1.5rem var(--space-section);
+  border-radius: clamp(18px, 3.5vw, 28px) clamp(18px, 3.5vw, 28px) 0 0;
+  box-shadow:
+    0 -22px 56px color-mix(in srgb, var(--ink) 7%, transparent),
+    0 -1px 0 color-mix(in srgb, var(--ink) 6%, transparent);
+}
+
+.hero + .section--layer {
+  margin-top: clamp(-4.25rem, -11vw, -2.5rem);
+}
+
+.section--layer + .section--layer {
+  margin-top: clamp(-3.25rem, -8vw, -2rem);
+}
+
+#information.section--layer {
+  z-index: 2;
+}
+
+#menu.section--layer {
+  z-index: 3;
+}
+
+#testimonials.section--layer {
+  z-index: 4;
+}
+
+#locations.section--layer {
+  z-index: 5;
+}
+
+#about.section--layer {
+  z-index: 6;
+}
+
+.information.section--layer {
+  border-top: none;
+}
+
+.testimonials-section.section--layer,
+.locations-section.section--layer,
+.about-section.section--layer {
+  border-top: none;
+}
+
+html.js-parallax .section--layer:not(#locations) {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js-parallax .section--layer {
+    will-change: auto !important;
+  }
 }
 
 .hero-media {
@@ -1015,6 +1076,8 @@ html.js-parallax .hero-content {
 }
 
 .site-footer {
+  position: relative;
+  z-index: 20;
   padding: 2.5rem 1.5rem;
   background: var(--ink);
   color: color-mix(in srgb, var(--cream) 75%, transparent);
