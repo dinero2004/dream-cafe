@@ -19,7 +19,24 @@ The site is intentionally dependency-free at build time: runtime assets are load
 | `index.html` | Structure, content, section anchors (`#home`, `#information`, `#menu`, `#locations`, `#about`) |
 | `styles.css` | Design tokens (CSS variables), layout, responsive rules, Leaflet pin override |
 | `script.js` | Mobile navigation, footer year, Leaflet map initialization |
-| `assets/moodboard.png` | Hero and About imagery (replace with production photography when available) |
+| `assets/*.jpg` | Photography used in hero, information strip, menu cards, and about (see below) |
+
+### Image usage (`assets/`)
+
+| File | Where it appears |
+| --- | --- |
+| `7f5ec140b3ff4ae7892af4e2706a66ed.jpg` | Home hero |
+| `1cd37d6500f94860dae90faf814d4187.jpg` | Information — main column image |
+| `e23afac6a89b7b0b0dc9c0fcc103114a.jpg` | Information — gallery |
+| `f508ba2ae3ace0743b2fb7ecf49ff6cf.jpg` | Information — gallery |
+| `450d84c9a67fd79019d9385e0b9ad95d.jpg` | Information — gallery |
+| `f8561ea80e14bd1989b4fe87736e1468.jpg` | Menu — Coffee |
+| `ff025bc01db3a954679604c06cd73b00.jpg` | Menu — Cold & creamy |
+| `f180cc8627673b1ee12238d0df513d59.jpg` | Menu — Pastries & cakes |
+| `df58b22138cc8ecae28d000a2488c409.jpg` | Menu — Light & savory (outdoor seating) |
+| `a71a7776caa4b122863c5b220a053626.jpg` | About — founder portrait |
+
+Additional JPEGs in `assets/` are available for future sections or swaps. `moodboard.png` is retained as an optional legacy asset.
 
 ## Dependencies (runtime)
 

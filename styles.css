@@ -318,6 +318,81 @@ main {
   border-bottom: 1px solid var(--line);
 }
 
+.information-layout {
+  display: grid;
+  grid-template-columns: 1fr min(42%, 380px);
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: start;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (max-width: 820px) {
+  .information-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .information-figure {
+    order: -1;
+    max-width: 28rem;
+    margin: 0 auto;
+  }
+}
+
+.information-copy .section-title {
+  text-align: left;
+}
+
+.information-figure {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 16px 48px color-mix(in srgb, var(--ink) 6%, transparent);
+}
+
+.information-figure img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.info-gallery-wrap {
+  max-width: 1000px;
+  margin: clamp(2rem, 5vw, 3rem) auto 0;
+  padding: 0 1.5rem;
+}
+
+.info-gallery {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+@media (max-width: 700px) {
+  .info-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+.info-gallery li {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.info-gallery img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+}
+
 .info-list {
   list-style: none;
   margin: 2rem 0 0;
@@ -369,11 +444,39 @@ main {
 }
 
 .menu-block {
-  padding: 1.75rem 1.5rem;
+  padding: 0;
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: 0 12px 40px color-mix(in srgb, var(--ink) 4%, transparent);
+  overflow: hidden;
+}
+
+.menu-block-photo {
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--cream-dark);
+}
+
+.menu-block-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.menu-block .menu-block-title,
+.menu-block .menu-items {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.menu-block .menu-block-title {
+  padding-top: 1.5rem;
+}
+
+.menu-block .menu-items {
+  padding-bottom: 1.75rem;
 }
 
 .menu-block-title {
