@@ -16,10 +16,29 @@ The site is intentionally dependency-free at build time: runtime assets are load
 
 | Path | Purpose |
 | --- | --- |
-| `index.html` | Structure, content, section anchors (`#home`, `#information`, `#menu`, `#locations`, `#about`) |
-| `styles.css` | Design tokens (CSS variables), layout, responsive rules, Leaflet pin override |
-| `script.js` | Mobile navigation, footer year, Leaflet map initialization |
+| `index.html` | Structure, content, section anchors (`#home`, `#information`, `#menu`, `#testimonials`, `#locations`, `#about`) |
+| `styles.css` | Design tokens per `data-theme`, layout, testimonials, theme/lang controls, Leaflet pin override |
+| `script.js` | i18n (EN/BG), theme persistence, mobile navigation, footer year, Leaflet map + popups |
+| `favicon.ico`, `favicon-*.png`, `apple-touch-icon.png`, `android-chrome-*.png`, `site.webmanifest` | Favicons and PWA manifest (project root) |
 | `assets/*.jpg` | Photography used in hero, information strip, menu cards, and about (see below) |
+
+### Favicon & manifest
+
+Favicon package lives next to `index.html`. `site.webmanifest` uses relative icon paths so it works on GitHub Pages.
+
+### Themes (`data-theme` on `<html>`)
+
+| Theme | Notes |
+| --- | --- |
+| `blush` | Default; original palette |
+| `lavender` | Soft purple–lavender accents |
+| `peach` | Warm peach–apricot accents |
+
+Choice is stored in `localStorage` under `dreamcafe-theme`. CSS variables `--blush`, `--cream`, `--sage`, etc., swap per theme; map pins re-tint from computed `--blush`.
+
+### Languages
+
+English (`en`) and Bulgarian (`bg`). Copy lives in `script.js` (`STRINGS`); elements use `data-i18n`, `data-i18n-alt`, `data-i18n-aria`, or `data-i18n-title`. Language is stored in `localStorage` under `dreamcafe-lang`. Document `lang`, `<title>`, and meta description update when the language changes.
 
 ### Image usage (`assets/`)
 

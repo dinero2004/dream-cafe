@@ -1,6 +1,7 @@
-/* Dream Café — blush, cream, minimal */
+/* Dream Café — blush, cream, minimal; themes on <html data-theme> */
 
-:root {
+:root,
+[data-theme="blush"] {
   --blush: #f4d0d0;
   --blush-deep: #e8b8b8;
   --cream: #faf9f6;
@@ -10,11 +11,36 @@
   --sage: #6b8f71;
   --white: #ffffff;
   --line: rgba(26, 26, 26, 0.12);
+  --meta-theme: #faf9f6;
   --font-serif: "Cormorant Garamond", "Times New Roman", serif;
   --font-sans: "DM Sans", system-ui, sans-serif;
   --space-section: clamp(4rem, 10vw, 7rem);
   --radius: 12px;
   --header-h: 4.25rem;
+}
+
+[data-theme="lavender"] {
+  --blush: #e0d4f0;
+  --blush-deep: #cbb8e8;
+  --cream: #f8f6fc;
+  --cream-dark: #efecf5;
+  --ink: #1e1a24;
+  --ink-muted: #5e5668;
+  --sage: #7a6b8f;
+  --line: rgba(30, 26, 36, 0.12);
+  --meta-theme: #f8f6fc;
+}
+
+[data-theme="peach"] {
+  --blush: #ffd9c9;
+  --blush-deep: #ffc4ad;
+  --cream: #fffaf7;
+  --cream-dark: #fff0e8;
+  --ink: #1f1918;
+  --ink-muted: #5f4f4a;
+  --sage: #b87a62;
+  --line: rgba(31, 25, 24, 0.12);
+  --meta-theme: #fffaf7;
 }
 
 *,
@@ -76,6 +102,99 @@ a:hover {
   justify-content: space-between;
   gap: 1rem;
   min-height: var(--header-h);
+  flex-wrap: wrap;
+}
+
+.site-nav {
+  margin-left: auto;
+}
+
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  flex-shrink: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.theme-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.theme-btn {
+  width: 1.35rem;
+  height: 1.35rem;
+  padding: 0;
+  border: 2px solid color-mix(in srgb, var(--ink) 18%, transparent);
+  border-radius: 50%;
+  cursor: pointer;
+  background: var(--cream-dark);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.theme-btn:hover {
+  transform: scale(1.08);
+}
+
+.theme-btn.is-active {
+  box-shadow: 0 0 0 2px var(--white), 0 0 0 4px var(--ink-muted);
+}
+
+.theme-btn--blush {
+  background: linear-gradient(135deg, #f4d0d0, #f0b8b8);
+}
+
+.theme-btn--lavender {
+  background: linear-gradient(135deg, #e0d4f0, #c6b0e0);
+}
+
+.theme-btn--peach {
+  background: linear-gradient(135deg, #ffd9c9, #ffb89a);
+}
+
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.lang-btn {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 0.4rem 0.65rem;
+  border: none;
+  background: transparent;
+  color: var(--ink-muted);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.lang-btn.is-active {
+  background: var(--blush);
+  color: var(--ink);
+}
+
+.lang-btn:not(.is-active):hover {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--blush) 35%, transparent);
 }
 
 .logo {
@@ -148,11 +267,25 @@ a:hover {
 }
 
 @media (max-width: 768px) {
+  .logo {
+    order: 0;
+  }
+
   .nav-toggle {
+    order: 1;
+    margin-left: auto;
     display: flex;
   }
 
+  .header-tools {
+    order: 2;
+    margin-left: 0;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
   .site-nav {
+    margin-left: 0;
     position: fixed;
     inset: var(--header-h) 0 0 0;
     background: var(--cream);
@@ -425,6 +558,61 @@ main {
   .info-list li {
     grid-template-columns: 1fr;
   }
+}
+
+.testimonials-section {
+  background: var(--cream-dark);
+  border-top: 1px solid var(--line);
+}
+
+.testimonials-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 900px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.testimonial-card {
+  margin: 0;
+  padding: 1.5rem 1.35rem;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 36px color-mix(in srgb, var(--ink) 5%, transparent);
+}
+
+.testimonial-stars {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  color: color-mix(in srgb, var(--sage) 85%, var(--ink));
+}
+
+.testimonial-quote {
+  margin: 0 0 1rem;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.testimonial-author {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
 }
 
 .menu-section {

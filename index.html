@@ -1,17 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="blush">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#faf9f6" />
     <title>Dream Café — Coffee & Patisserie</title>
     <meta
       name="description"
       content="Dream Café — minimalist coffee and patisserie in Sofia and Greece. Pastries, specialty coffee, and light fare by Ivana Pencheva."
     />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="shortcut icon" href="favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap&subset=latin,cyrillic"
       rel="stylesheet"
     />
     <link
@@ -26,25 +32,72 @@
     <header class="site-header" id="top">
       <div class="header-inner">
         <a class="logo" href="#top">Dream Café</a>
+        <nav class="site-nav" id="site-nav" aria-label="Primary" data-i18n-aria="aria_nav_primary">
+          <ul class="nav-list">
+            <li><a href="#home" data-i18n="nav_home">Home</a></li>
+            <li><a href="#information" data-i18n="nav_information">Information</a></li>
+            <li><a href="#menu" data-i18n="nav_menu">Menu</a></li>
+            <li><a href="#testimonials" data-i18n="nav_testimonials">Testimonials</a></li>
+            <li><a href="#locations" data-i18n="nav_locations">Locations</a></li>
+            <li><a href="#about" data-i18n="nav_about">About</a></li>
+          </ul>
+        </nav>
+        <div class="header-tools">
+          <div
+            class="theme-switcher"
+            role="group"
+            aria-label="Color theme"
+            data-i18n-aria="aria_theme_group"
+          >
+            <button
+              type="button"
+              class="theme-btn theme-btn--blush is-active"
+              data-set-theme="blush"
+              aria-pressed="true"
+              title="Blush"
+              data-i18n-title="theme_blush"
+            >
+              <span class="visually-hidden" data-i18n="theme_blush">Blush</span>
+            </button>
+            <button
+              type="button"
+              class="theme-btn theme-btn--lavender"
+              data-set-theme="lavender"
+              aria-pressed="false"
+              title="Lavender"
+              data-i18n-title="theme_lavender"
+            >
+              <span class="visually-hidden" data-i18n="theme_lavender">Lavender</span>
+            </button>
+            <button
+              type="button"
+              class="theme-btn theme-btn--peach"
+              data-set-theme="peach"
+              aria-pressed="false"
+              title="Peach"
+              data-i18n-title="theme_peach"
+            >
+              <span class="visually-hidden" data-i18n="theme_peach">Peach</span>
+            </button>
+          </div>
+          <div class="lang-switcher" role="group" aria-label="Language" data-i18n-aria="aria_lang_group">
+            <button type="button" class="lang-btn is-active" data-set-lang="en" aria-pressed="true">
+              EN
+            </button>
+            <button type="button" class="lang-btn" data-set-lang="bg" aria-pressed="false">БГ</button>
+          </div>
+        </div>
         <button
           class="nav-toggle"
           type="button"
           aria-label="Open menu"
+          data-i18n-aria="aria_open_menu"
           aria-expanded="false"
           aria-controls="site-nav"
         >
           <span class="nav-toggle-bar"></span>
           <span class="nav-toggle-bar"></span>
         </button>
-        <nav class="site-nav" id="site-nav" aria-label="Primary">
-          <ul class="nav-list">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#information">Information</a></li>
-            <li><a href="#menu">Menu</a></li>
-            <li><a href="#locations">Locations</a></li>
-            <li><a href="#about">About</a></li>
-          </ul>
-        </nav>
       </div>
     </header>
 
@@ -53,7 +106,8 @@
         <div class="hero-media">
           <img
             src="assets/7f5ec140b3ff4ae7892af4e2706a66ed.jpg"
-            alt="Dream Café exterior: white walls, wood-framed glass, and pink bougainvillea"
+            alt=""
+            data-i18n-alt="hero_img_alt"
             width="1600"
             height="1000"
             class="hero-img"
@@ -62,43 +116,48 @@
           <div class="hero-overlay" aria-hidden="true"></div>
         </div>
         <div class="hero-content">
-          <p class="hero-eyebrow">Sofia · Greece</p>
+          <p class="hero-eyebrow" data-i18n="hero_eyebrow">Sofia · Greece</p>
           <h1 id="hero-heading" class="hero-title">Dream Café</h1>
-          <p class="hero-tagline">
+          <p class="hero-tagline" data-i18n="hero_tagline">
             A quiet room for coffee, pastry, and unhurried afternoons.
           </p>
-          <a class="btn btn-primary" href="#menu">View menu</a>
+          <a class="btn btn-primary" href="#menu" data-i18n="hero_cta">View menu</a>
         </div>
       </section>
 
       <section class="section information" id="information" aria-labelledby="info-heading">
         <div class="section-inner information-layout">
           <div class="information-copy">
-            <h2 id="info-heading" class="section-title">Information</h2>
-            <p class="lead">
+            <h2 id="info-heading" class="section-title" data-i18n="info_title">Information</h2>
+            <p class="lead" data-i18n="info_lead">
               Dream Café is a small collection of spaces built around light, plants,
               and careful craft. We serve specialty coffee, house-made lemonades and
               iced teas, pastries, and a concise savory menu for lunch or a light bite.
             </p>
             <ul class="info-list">
               <li>
-                <span class="info-label">Hours</span>
-                <span class="info-value">Daily 8:00 — 20:00</span>
+                <span class="info-label" data-i18n="info_hours_lbl">Hours</span>
+                <span class="info-value" data-i18n="info_hours_val">Daily 8:00 — 20:00</span>
               </li>
               <li>
-                <span class="info-label">Reservations</span>
-                <span class="info-value">Walk-in welcome; groups of 6+ by request</span>
+                <span class="info-label" data-i18n="info_res_lbl">Reservations</span>
+                <span class="info-value" data-i18n="info_res_val"
+                  >Walk-in welcome; groups of 6+ by request</span
+                >
               </li>
               <li>
-                <span class="info-label">Dietary</span>
-                <span class="info-value">Vegetarian options; please ask staff for allergens</span>
+                <span class="info-label" data-i18n="info_diet_lbl">Dietary</span>
+                <span class="info-value" data-i18n="info_diet_val"
+                  >Vegetarian options; please ask staff for allergens</span
+                >
               </li>
             </ul>
           </div>
           <figure class="information-figure">
             <img
               src="assets/1cd37d6500f94860dae90faf814d4187.jpg"
-              alt="Contemporary Dream Café building with concrete façade, wood-framed windows, and flowering vines"
+              alt=""
+              data-i18n-alt="info_fig_alt"
               width="900"
               height="1200"
               loading="lazy"
@@ -110,7 +169,8 @@
             <li>
               <img
                 src="assets/e23afac6a89b7b0b0dc9c0fcc103114a.jpg"
-                alt="Pastry counter with croissants, fruit danishes, and viennoiserie"
+                alt=""
+                data-i18n-alt="gal_1_alt"
                 width="600"
                 height="480"
                 loading="lazy"
@@ -119,7 +179,8 @@
             <li>
               <img
                 src="assets/f508ba2ae3ace0743b2fb7ecf49ff6cf.jpg"
-                alt="Stack of blueberry muffins with coarse sugar tops"
+                alt=""
+                data-i18n-alt="gal_2_alt"
                 width="600"
                 height="480"
                 loading="lazy"
@@ -128,7 +189,8 @@
             <li>
               <img
                 src="assets/450d84c9a67fd79019d9385e0b9ad95d.jpg"
-                alt="Peach iced tea with mint in a tall glass on a wooden table"
+                alt=""
+                data-i18n-alt="gal_3_alt"
                 width="600"
                 height="480"
                 loading="lazy"
@@ -141,8 +203,8 @@
       <section class="section menu-section" id="menu" aria-labelledby="menu-heading">
         <div class="section-inner">
           <div class="section-head">
-            <h2 id="menu-heading" class="section-title">Menu</h2>
-            <p class="section-subtitle">
+            <h2 id="menu-heading" class="section-title" data-i18n="menu_title">Menu</h2>
+            <p class="section-subtitle" data-i18n="menu_subtitle">
               Seasonal items may rotate. All drinks can be prepared iced on request.
             </p>
           </div>
@@ -152,20 +214,39 @@
               <figure class="menu-block-photo">
                 <img
                   src="assets/f8561ea80e14bd1989b4fe87736e1468.jpg"
-                  alt="Cappuccino with latte art in a white cup on a wooden table"
+                  alt=""
+                  data-i18n-alt="menu_coffee_img_alt"
                   width="640"
                   height="480"
                   loading="lazy"
                 />
               </figure>
-              <h3 class="menu-block-title">Coffee</h3>
+              <h3 class="menu-block-title" data-i18n="mb_coffee">Coffee</h3>
               <ul class="menu-items">
-                <li><span>Espresso</span><span class="dots"></span><span class="menu-note">Classic</span></li>
-                <li><span>Macchiato</span><span class="dots"></span><span class="menu-note">Short</span></li>
-                <li><span>Cappuccino</span><span class="dots"></span><span class="menu-note">Single origin</span></li>
-                <li><span>Flat white</span><span class="dots"></span><span class="menu-note">Velvet microfoam</span></li>
-                <li><span>Filter coffee</span><span class="dots"></span><span class="menu-note">Rotating beans</span></li>
-                <li><span>Signature latte</span><span class="dots"></span><span class="menu-note">House syrup optional</span></li>
+                <li
+                  ><span data-i18n="coffee_1n">Espresso</span><span class="dots"></span
+                  ><span class="menu-note" data-i18n="coffee_1m">Classic</span></li
+                >
+                <li
+                  ><span data-i18n="coffee_2n">Macchiato</span><span class="dots"></span
+                  ><span class="menu-note" data-i18n="coffee_2m">Short</span></li
+                >
+                <li
+                  ><span data-i18n="coffee_3n">Cappuccino</span><span class="dots"></span
+                  ><span class="menu-note" data-i18n="coffee_3m">Single origin</span></li
+                >
+                <li
+                  ><span data-i18n="coffee_4n">Flat white</span><span class="dots"></span
+                  ><span class="menu-note" data-i18n="coffee_4m">Velvet microfoam</span></li
+                >
+                <li
+                  ><span data-i18n="coffee_5n">Filter coffee</span><span class="dots"></span
+                  ><span class="menu-note" data-i18n="coffee_5m">Rotating beans</span></li
+                >
+                <li
+                  ><span data-i18n="coffee_6n">Signature latte</span><span class="dots"></span
+                  ><span class="menu-note" data-i18n="coffee_6m">House syrup optional</span></li
+                >
               </ul>
             </article>
 
@@ -173,18 +254,31 @@
               <figure class="menu-block-photo">
                 <img
                   src="assets/ff025bc01db3a954679604c06cd73b00.jpg"
-                  alt="Homemade lemonade with ice, lemon, and fresh mint"
+                  alt=""
+                  data-i18n-alt="menu_cold_img_alt"
                   width="640"
                   height="480"
                   loading="lazy"
                 />
               </figure>
-              <h3 class="menu-block-title">Cold &amp; creamy</h3>
+              <h3 class="menu-block-title" data-i18n="mb_cold">Cold &amp; creamy</h3>
               <ul class="menu-items">
-                <li><span>Homemade lemonade</span><span class="dots"></span><span class="menu-note">Citrus, berry</span></li>
-                <li><span>Iced tea</span><span class="dots"></span><span class="menu-note">Black, green, herbal</span></li>
-                <li><span>Milkshakes</span><span class="dots"></span><span class="menu-note">Vanilla, chocolate, seasonal</span></li>
-                <li><span>Iced latte</span><span class="dots"></span><span class="menu-note">Espresso &amp; milk</span></li>
+                <li
+                  ><span data-i18n="cold_1n">Homemade lemonade</span><span class="dots"></span
+                  ><span class="menu-note" data-i18n="cold_1m">Citrus, berry</span></li
+                >
+                <li
+                  ><span data-i18n="cold_2n">Iced tea</span><span class="dots"></span
+                  ><span class="menu-note" data-i18n="cold_2m">Black, green, herbal</span></li
+                >
+                <li
+                  ><span data-i18n="cold_3n">Milkshakes</span><span class="dots"></span
+                  ><span class="menu-note" data-i18n="cold_3m">Vanilla, chocolate, seasonal</span></li
+                >
+                <li
+                  ><span data-i18n="cold_4n">Iced latte</span><span class="dots"></span
+                  ><span class="menu-note" data-i18n="cold_4m">Espresso &amp; milk</span></li
+                >
               </ul>
             </article>
 
@@ -192,17 +286,27 @@
               <figure class="menu-block-photo">
                 <img
                   src="assets/f180cc8627673b1ee12238d0df513d59.jpg"
-                  alt="Display of cakes, tarts, and viennoiserie in the pastry case"
+                  alt=""
+                  data-i18n-alt="menu_pastry_img_alt"
                   width="640"
                   height="480"
                   loading="lazy"
                 />
               </figure>
-              <h3 class="menu-block-title">Pastries &amp; cakes</h3>
+              <h3 class="menu-block-title" data-i18n="mb_pastries">Pastries &amp; cakes</h3>
               <ul class="menu-items">
-                <li><span>Seasonal cake slices</span><span class="dots"></span><span class="menu-note">Fruit &amp; cream</span></li>
-                <li><span>Muffins &amp; viennoiserie</span><span class="dots"></span><span class="menu-note">Morning</span></li>
-                <li><span>Tarts &amp; petits gâteaux</span><span class="dots"></span><span class="menu-note">Afternoon</span></li>
+                <li
+                  ><span data-i18n="past_1n">Seasonal cake slices</span><span class="dots"></span
+                  ><span class="menu-note" data-i18n="past_1m">Fruit &amp; cream</span></li
+                >
+                <li
+                  ><span data-i18n="past_2n">Muffins &amp; viennoiserie</span><span class="dots"></span
+                  ><span class="menu-note" data-i18n="past_2m">Morning</span></li
+                >
+                <li
+                  ><span data-i18n="past_3n">Tarts &amp; petits gâteaux</span><span class="dots"></span
+                  ><span class="menu-note" data-i18n="past_3m">Afternoon</span></li
+                >
               </ul>
             </article>
 
@@ -210,63 +314,109 @@
               <figure class="menu-block-photo">
                 <img
                   src="assets/df58b22138cc8ecae28d000a2488c409.jpg"
-                  alt="Outdoor seating at Dream Café with yellow climbing flowers and a chalkboard menu"
+                  alt=""
+                  data-i18n-alt="menu_savory_img_alt"
                   width="640"
                   height="480"
                   loading="lazy"
                 />
               </figure>
-              <h3 class="menu-block-title">Light &amp; savory</h3>
+              <h3 class="menu-block-title" data-i18n="mb_savory">Light &amp; savory</h3>
               <ul class="menu-items">
-                <li><span>Garden salads</span><span class="dots"></span><span class="menu-note">Leaves, grains, vinaigrette</span></li>
-                <li><span>Wraps</span><span class="dots"></span><span class="menu-note">Grilled vegetables, herbs</span></li>
-                <li><span>Sandwiches</span><span class="dots"></span><span class="menu-note">Sourdough, daily fillings</span></li>
+                <li
+                  ><span data-i18n="sav_1n">Garden salads</span><span class="dots"></span
+                  ><span class="menu-note" data-i18n="sav_1m">Leaves, grains, vinaigrette</span></li
+                >
+                <li
+                  ><span data-i18n="sav_2n">Wraps</span><span class="dots"></span
+                  ><span class="menu-note" data-i18n="sav_2m">Grilled vegetables, herbs</span></li
+                >
+                <li
+                  ><span data-i18n="sav_3n">Sandwiches</span><span class="dots"></span
+                  ><span class="menu-note" data-i18n="sav_3m">Sourdough, daily fillings</span></li
+                >
               </ul>
             </article>
           </div>
         </div>
       </section>
 
+      <section class="section testimonials-section" id="testimonials" aria-labelledby="testimonials-heading">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2 id="testimonials-heading" class="section-title" data-i18n="testimonials_title">
+              Testimonials
+            </h2>
+            <p class="section-subtitle" data-i18n="testimonials_sub">
+              Notes from guests who like their coffee quiet and their pastry first.
+            </p>
+          </div>
+          <ul class="testimonials-grid">
+            <li class="testimonial-card">
+              <p class="testimonial-stars" aria-hidden="true">★★★★★</p>
+              <blockquote class="testimonial-quote" data-i18n="test_1_quote">
+                The calmest coffee ritual in Sofia. The pastry case is dangerous—in the best way.
+              </blockquote>
+              <p class="testimonial-author" data-i18n="test_1_author">— Mira K., designer · Sofia</p>
+            </li>
+            <li class="testimonial-card">
+              <p class="testimonial-stars" aria-hidden="true">★★★★★</p>
+              <blockquote class="testimonial-quote" data-i18n="test_2_quote">
+                Feels like a private salon, not a crowded café. The iced tea was unforgettable.
+              </blockquote>
+              <p class="testimonial-author" data-i18n="test_2_author">— Alex P. · Athens</p>
+            </li>
+            <li class="testimonial-card">
+              <p class="testimonial-stars" aria-hidden="true">★★★★★</p>
+              <blockquote class="testimonial-quote" data-i18n="test_3_quote">
+                We booked the terrace for six. Service was quiet, warm, and precise.
+              </blockquote>
+              <p class="testimonial-author" data-i18n="test_3_author">— Elena S. · Sofia</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
       <section class="section locations-section" id="locations" aria-labelledby="locations-heading">
         <div class="section-inner">
           <div class="section-head">
-            <h2 id="locations-heading" class="section-title">Locations</h2>
-            <p class="section-subtitle">
+            <h2 id="locations-heading" class="section-title" data-i18n="loc_title">Locations</h2>
+            <p class="section-subtitle" data-i18n="loc_subtitle">
               Four houses — two in Sofia and two in Greece. Tap a pin for the address.
             </p>
           </div>
           <div class="locations-layout">
             <div class="location-cards">
               <article class="location-card">
-                <h3 class="location-name">Dream Café — Vitosha</h3>
-                <p class="location-meta">Sofia, Bulgaria</p>
+                <h3 class="location-name" data-i18n="loc_vitosha_name">Dream Café — Vitosha</h3>
+                <p class="location-meta" data-i18n="loc_sofia_meta">Sofia, Bulgaria</p>
                 <p class="location-address">
-                  12 Vitosha Boulevard<br />
-                  1000 Sofia
+                  <span data-i18n="addr_vitosha_1">12 Vitosha Boulevard</span><br />
+                  <span data-i18n="addr_vitosha_2">1000 Sofia</span>
                 </p>
               </article>
               <article class="location-card">
-                <h3 class="location-name">Dream Café — Lozenets</h3>
-                <p class="location-meta">Sofia, Bulgaria</p>
+                <h3 class="location-name" data-i18n="loc_lozenets_name">Dream Café — Lozenets</h3>
+                <p class="location-meta" data-i18n="loc_sofia_meta">Sofia, Bulgaria</p>
                 <p class="location-address">
-                  4 Lozenets Street<br />
-                  1421 Sofia
+                  <span data-i18n="addr_lozenets_1">4 Lozenets Street</span><br />
+                  <span data-i18n="addr_lozenets_2">1421 Sofia</span>
                 </p>
               </article>
               <article class="location-card">
-                <h3 class="location-name">Dream Café — Kolonaki</h3>
-                <p class="location-meta">Athens, Greece</p>
+                <h3 class="location-name" data-i18n="loc_kolonaki_name">Dream Café — Kolonaki</h3>
+                <p class="location-meta" data-i18n="loc_athens_meta">Athens, Greece</p>
                 <p class="location-address">
-                  8 Tsakalof Street<br />
-                  106 73 Athens
+                  <span data-i18n="addr_kolonaki_1">8 Tsakalof Street</span><br />
+                  <span data-i18n="addr_kolonaki_2">106 73 Athens</span>
                 </p>
               </article>
               <article class="location-card">
-                <h3 class="location-name">Dream Café — Ladadika</h3>
-                <p class="location-meta">Thessaloniki, Greece</p>
+                <h3 class="location-name" data-i18n="loc_ladadika_name">Dream Café — Ladadika</h3>
+                <p class="location-meta" data-i18n="loc_thess_meta">Thessaloniki, Greece</p>
                 <p class="location-address">
-                  3 Katouni Street<br />
-                  546 25 Thessaloniki
+                  <span data-i18n="addr_ladadika_1">3 Katouni Street</span><br />
+                  <span data-i18n="addr_ladadika_2">546 25 Thessaloniki</span>
                 </p>
               </article>
             </div>
@@ -274,6 +424,7 @@
               class="map-wrap"
               id="map"
               role="region"
+              data-i18n-aria="map_aria"
               aria-label="Map of Dream Café locations"
             ></div>
           </div>
@@ -283,27 +434,30 @@
       <section class="section about-section" id="about" aria-labelledby="about-heading">
         <div class="section-inner about-grid">
           <div class="about-copy">
-            <h2 id="about-heading" class="section-title">About us</h2>
+            <h2 id="about-heading" class="section-title" data-i18n="about_title">About us</h2>
             <p class="lead">
-              Dream Café was founded by <strong>Ivana Pencheva</strong> as a place
-              where precision meets warmth — the same care in a cup of espresso as
-              in the room you drink it in.
+              <span data-i18n="about_lead_a">Dream Café was founded by</span>
+              <strong>Ivana Pencheva</strong>
+              <span data-i18n="about_lead_b"
+                >as a place where precision meets warmth — the same care in a cup of espresso as in
+                the room you drink it in.</span
+              >
             </p>
-            <p>
-              Ivana trained in specialty coffee and pastry before opening the first
-              Dream Café in Sofia. Today the brand grows slowly, one space at a time,
-              always with the same brief: soft light, honest ingredients, and calm
-              service.
+            <p data-i18n="about_p2">
+              Ivana trained in specialty coffee and pastry before opening the first Dream Café in
+              Sofia. Today the brand grows slowly, one space at a time, always with the same brief:
+              soft light, honest ingredients, and calm service.
             </p>
             <blockquote class="about-quote">
-              “We don’t rush the pour — or the afternoon.”
-              <cite>— Ivana Pencheva, founder</cite>
+              <span data-i18n="about_quote">“We don’t rush the pour — or the afternoon.”</span>
+              <cite data-i18n="about_cite">— Ivana Pencheva, founder</cite>
             </blockquote>
           </div>
           <figure class="about-figure">
             <img
               src="assets/a71a7776caa4b122863c5b220a053626.jpg"
-              alt="Ivana Pencheva, founder of Dream Café"
+              alt=""
+              data-i18n-alt="about_img_alt"
               width="900"
               height="1100"
               loading="lazy"
@@ -316,7 +470,10 @@
     <footer class="site-footer">
       <div class="footer-inner">
         <p class="footer-brand">Dream Café</p>
-        <p class="footer-meta">© <span id="year"></span> Dream Café. Sofia &amp; Greece.</p>
+        <p class="footer-meta">
+          © <span id="year"></span>
+          <span data-i18n="footer_rights"> Dream Café. Sofia &amp; Greece.</span>
+        </p>
       </div>
     </footer>
 
