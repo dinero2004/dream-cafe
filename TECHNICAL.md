@@ -40,6 +40,10 @@ Choice is stored in `localStorage` under `dreamcafe-theme`. CSS variables `--blu
 
 English (`en`) and Bulgarian (`bg`). Copy lives in `script.js` (`STRINGS`); elements use `data-i18n`, `data-i18n-alt`, `data-i18n-aria`, or `data-i18n-title`. Language is stored in `localStorage` under `dreamcafe-lang`. Document `lang`, `<title>`, and meta description update when the language changes.
 
+### Settings menu
+
+Theme (square color swatches + labels) and language live in a **Settings** dropdown in the header. The panel closes on outside click, **Escape**, or when opening the mobile navigation. Theme swatches use flat base colors (`#f4d0d0`, `#e0d4f0`, `#ffd9c9`) as quick previews.
+
 ### Image usage (`assets/`)
 
 | File | Where it appears |

@@ -14,6 +14,11 @@
       aria_nav_primary: "Primary",
       aria_theme_group: "Color theme",
       aria_lang_group: "Language",
+      settings_btn: "Settings",
+      settings_btn_aria: "Site settings",
+      settings_panel_aria: "Site preferences",
+      settings_section_theme: "Theme",
+      settings_section_lang: "Language",
       nav_home: "Home",
       nav_information: "Information",
       nav_menu: "Menu",
@@ -130,6 +135,11 @@
       aria_nav_primary: "Основна навигация",
       aria_theme_group: "Цветова тема",
       aria_lang_group: "Език",
+      settings_btn: "Настройки",
+      settings_btn_aria: "Настройки на сайта",
+      settings_panel_aria: "Предпочитания",
+      settings_section_theme: "Тема",
+      settings_section_lang: "Език",
       nav_home: "Начало",
       nav_information: "Информация",
       nav_menu: "Меню",
@@ -487,10 +497,73 @@
     });
   });
 
+  var settingsDropdown = document.getElementById("settings-dropdown");
+  var settingsTrigger = document.getElementById("settings-trigger");
+  var settingsPanel = document.getElementById("settings-panel");
+
+  function closeSettings() {
+    if (!settingsDropdown || !settingsPanel || !settingsTrigger) {
+      return;
+    }
+    settingsDropdown.classList.remove("is-open");
+    settingsPanel.setAttribute("hidden", "");
+    settingsTrigger.setAttribute("aria-expanded", "false");
+  }
+
+  function openSettings() {
+    if (!settingsDropdown || !settingsPanel || !settingsTrigger) {
+      return;
+    }
+    var navEl = document.getElementById("site-nav");
+    var navTog = document.querySelector(".nav-toggle");
+    if (navEl && navEl.classList.contains("is-open")) {
+      navEl.classList.remove("is-open");
+      if (navTog) {
+        navTog.setAttribute("aria-expanded", "false");
+        navTog.setAttribute("aria-label", t(getLang(), "aria_open_menu"));
+      }
+    }
+    settingsDropdown.classList.add("is-open");
+    settingsPanel.removeAttribute("hidden");
+    settingsTrigger.setAttribute("aria-expanded", "true");
+  }
+
+  function toggleSettings() {
+    if (!settingsPanel || settingsPanel.hasAttribute("hidden")) {
+      openSettings();
+    } else {
+      closeSettings();
+    }
+  }
+
+  if (settingsTrigger && settingsPanel && settingsDropdown) {
+    settingsTrigger.addEventListener("click", function (e) {
+      e.stopPropagation();
+      toggleSettings();
+    });
+  }
+
+  document.addEventListener("click", function (e) {
+    if (!settingsDropdown || !settingsDropdown.classList.contains("is-open")) {
+      return;
+    }
+    if (settingsDropdown.contains(e.target)) {
+      return;
+    }
+    closeSettings();
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      closeSettings();
+    }
+  });
+
   var nav = document.getElementById("site-nav");
   var toggle = document.querySelector(".nav-toggle");
   if (nav && toggle) {
     toggle.addEventListener("click", function () {
+      closeSettings();
       var open = !nav.classList.contains("is-open");
       nav.classList.toggle("is-open", open);
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
@@ -500,6 +573,7 @@
 
     nav.querySelectorAll('a[href^="#"]').forEach(function (link) {
       link.addEventListener("click", function () {
+        closeSettings();
         nav.classList.remove("is-open");
         toggle.setAttribute("aria-expanded", "false");
         var lg = getLang();
