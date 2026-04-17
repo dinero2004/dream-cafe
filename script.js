@@ -581,4 +581,71 @@
       });
     });
   }
+
+  (function initHeroParallax() {
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var hero = document.getElementById("home");
+    var heroImg = hero && hero.querySelector(".hero-img");
+    var heroContent = hero && hero.querySelector(".hero-content");
+    if (!hero || !heroImg) {
+      return;
+    }
+
+    var ticking = false;
+
+    function clearParallax() {
+      document.documentElement.classList.remove("js-parallax");
+      heroImg.style.transform = "";
+      if (heroContent) {
+        heroContent.style.transform = "";
+      }
+    }
+
+    function applyParallax() {
+      if (reduceMotion.matches) {
+        clearParallax();
+        return;
+      }
+
+      document.documentElement.classList.add("js-parallax");
+
+      var scrollY = window.scrollY || document.documentElement.scrollTop;
+      var rect = hero.getBoundingClientRect();
+      var vh = window.innerHeight || 1;
+
+      if (rect.bottom < -100 || rect.top > vh + 100) {
+        return;
+      }
+
+      var imgY = scrollY * 0.085;
+      imgY = Math.max(-46, Math.min(46, imgY));
+
+      var contentY = scrollY * -0.038;
+      contentY = Math.max(-20, Math.min(20, contentY));
+
+      heroImg.style.transform = "translate3d(0," + imgY + "px,0) scale(1.075)";
+      if (heroContent) {
+        heroContent.style.transform = "translate3d(0," + contentY + "px,0)";
+      }
+    }
+
+    function requestParallaxTick() {
+      if (!ticking) {
+        window.requestAnimationFrame(function () {
+          ticking = false;
+          applyParallax();
+        });
+        ticking = true;
+      }
+    }
+
+    window.addEventListener("scroll", requestParallaxTick, { passive: true });
+    window.addEventListener("resize", requestParallaxTick, { passive: true });
+
+    if (reduceMotion.addEventListener) {
+      reduceMotion.addEventListener("change", applyParallax);
+    }
+
+    applyParallax();
+  })();
 })();

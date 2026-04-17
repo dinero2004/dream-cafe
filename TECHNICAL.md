@@ -44,6 +44,10 @@ English (`en`) and Bulgarian (`bg`). Copy lives in `script.js` (`STRINGS`); elem
 
 Theme (square color swatches + labels) and language live in a **Settings** dropdown in the header. The panel closes on outside click, **Escape**, or when opening the mobile navigation. Theme swatches use flat base colors (`#f4d0d0`, `#e0d4f0`, `#ffd9c9`) as quick previews.
 
+### Hero parallax (subtle)
+
+When **`prefers-reduced-motion: reduce`** is off, `script.js` applies a **light scroll-linked parallax** on the hero only: the photo moves slightly slower than the page (`translate3d` + small `scale` so edges stay covered), and the headline block moves a bit in the opposite direction for depth. Values are **clamped** (about ±46px / ±20px) so motion stays calm. **`requestAnimationFrame`** + **passive** scroll listeners keep scrolling smooth. If the user enables “reduce motion” in the OS, transforms are cleared and `html.js-parallax` is not used.
+
 ### Image usage (`assets/`)
 
 | File | Where it appears |
